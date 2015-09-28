@@ -14,7 +14,7 @@ import textrazor
 import json
 
 
-textrazor.api_key = "478a1f8d564e5d8dfb8502032aeb1b93ff198c2a1bdb6514079cd2ea"
+textrazor.api_key = "Put API Key Here"
 
 def get_locations(name):
     #SET DRIVER
