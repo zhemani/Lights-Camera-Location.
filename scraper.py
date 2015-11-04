@@ -23,41 +23,9 @@ def get_locations(name):
     driver.delete_all_cookies()
 
     #GO TO LINK
-    driver.get("http://www.movie-locations.com/films.html")
-    #ENTER INPUT
-    submit_box = driver.find_element_by_name("q")
-    submit_box.send_keys(name) 
-
-
-    def find_by_xpath(locator):
-        element = WebDriverWait(driver, 10).until(
-            EC.presence_of_element_located((By.XPATH, locator))
-        )
-
-        return element
-
-    find_by_xpath('//input[@value = "or search the site"]').click()
-
-
-    for handle in driver.window_handles:
-        driver.switch_to_window(handle)
-
-
-    html_doc = driver.page_source
-    soup = BeautifulSoup(html_doc)
-    soup.prettify()
-    get_link = soup.find('div', {'class' : "gsc-url-bottom"}).text
-    
-    newlink = get_link.replace("www.movie-locations.comw", "")
-    w = 'http://w'
-    newlink = w + newlink
-
-    client = textrazor.TextRazor(extractors=["entities"])
-    client.set_entity_freebase_type_filters(["/architecture/building", "/business/shopping_center", "/architecture/building", "/architecture/house", "/architecture/lighthouse", "/architecture/landscape_project", "/architecture/museum", "/architecture/skyscraper", "/architecture/structure", "/architecture/tower", "/architecture/venue", "/geography/lake", "/geography/waterfall", "/geography/mountain", "/geography/river", "/transportation/bridge", "/transportation/road", "/zoos/zoo", "/amusement_parks/park"])
-    client.set_entity_dbpedia_type_filters(["ArchitecturalStructure", "Bridge", "Building", "CollegeOrUniversity", "EducationalInstitution", "HistoricBuilding", "HistoricPlace", "Hotel", "Infrastructure", "LandmarksOrHistoricalBuildings", "Library", "Lighthouse", "Museum", "Mountain", "Restaurant", "School", "ShoppingCenter", "ShoppingMall", "StadiumOrArena", "Station", "University", "College"])
-    client.set_cleanup_mode("cleanHTML")
-    response = client.analyze_url(newlink)
-
+    #...........
+   #Application is under development and parsing code is hidden!
+   #.............
 
     entities = list(response.entities())
     entities.sort(key=lambda x: x.relevance_score, reverse=True)
